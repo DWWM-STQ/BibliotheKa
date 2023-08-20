@@ -1,5 +1,6 @@
 <?php 
-
+session_start();
+$_SESSION['page'] = "Conditions générales de vente";
 require_once '../COMPONENTS/navbar.php';
 ?>
 <!DOCTYPE html>
@@ -8,7 +9,7 @@ require_once '../COMPONENTS/navbar.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require '../COMPONENTS/links.php'; ?>
-    <title>Conditions générales de vente</title>
+    <title>BibliotheKa | <?= $_SESSION['page'] ?></title>
 </head>
 <body>
     
