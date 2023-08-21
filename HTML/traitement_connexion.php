@@ -53,6 +53,7 @@ if($result = mysqli_query($conn, $sql)){
             if(($login == $row['login']) && ($mdp == password_verify($mdp, $row['mdp']))){
                 $_SESSION['login'] = $login;
                 $_SESSION['roles'] = $row['roles'];
+
                 $valide = "ok";
                 header('Location: ./profil.php');
                 exit();
