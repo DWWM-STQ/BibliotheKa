@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['page'] = "Gestion des clients";
+$_SESSION['page'] = "Accueil administrateur";
 if ($_SESSION['roles'] != 'admin'){
     header('Location: ../HTML/home.php');
     exit();

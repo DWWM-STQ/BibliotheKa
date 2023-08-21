@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="../HTML/home.php">Accueil
+          <a class="nav-link" href="../HTML/home.php">Accueil
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
@@ -27,6 +27,11 @@
             <a class="dropdown-item" href="<?php if (empty($_SESSION["login"])) echo "../HTML/connexion.php"; else echo "../HTML/profil.php" ?>">Mon profil</a> 
           </div>
         </li>
+        <?php if(isset($_SESSION['roles']) && $_SESSION['roles'] == "admin") echo "
+        <li class='nav-item'>
+          <a class='nav-link' href='../ADMIN/admin_home.php'>Admin
+          </a>
+        </li>";?>
       </ul>
       <!-- <form class="d-flex">
         <input class="form-control me-sm-2" type="search" placeholder="Search">

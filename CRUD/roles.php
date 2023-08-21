@@ -20,12 +20,12 @@ if($mdp_ok == "randomPass"){
 
         if(mysqli_stmt_execute($stmt)){
             mysqli_close($conn);
-            header('Location: ../index.php');
+            header('Location: ../HTML/home.php');
             exit();
         }
     }
 } else {
-    header('Location: ../index.php');
+    header('Location: ../HTML/home.php');
     exit();
 }
 

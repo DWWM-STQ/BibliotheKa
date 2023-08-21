@@ -19,11 +19,11 @@ if (isset($_POST['login']) && ($_POST['login'] != null) && !empty($_POST['login'
 
 if (isset($_POST['password']) && ($_POST['password'] != null)){
     if($_POST['password'] == $_POST['repeatPassword']){
-        if(preg_match('`[^0-9a-zA-Z]`',$_POST['password'])){
+        if(preg_match('`[^0-9a-zA-Z]+$`',$_POST['password'])){
             $mdp = $_POST['password'];
             $_SESSION["invalid_password"] = "";
         } else {
-            $_SESSION['erreur'] .= 'Le mot de passe doit contenir au moins une lettre minuscule et une lettre majuscule et un caractère spécial. ';
+            $_SESSION['erreur'] .= 'Le mot de passe doit contenir au moins une lettre et un caractère spécial.';
             $_SESSION["invalid_password"] = "error";
             header('Location: ./inscription.php');
             exit();
@@ -90,13 +90,15 @@ if($stmt = mysqli_prepare($conn, $sql)){
         $param_ville = protect_montexte($_POST['town']);
         
         
-        if($result = mysqli_query($conn, "SELECT id FROM users")){
+        if($result = mysqli_query($conn, "SELECT id FROM users WHERE login = '$login'")){
             if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_array($result)){
                     $param_userid = $row['id'];
                 }
             }else{
-                $param_userid = 1;
+                $_SESSION['erreur'] .= 'Une erreur est survenue lors de la création de votre compte';
+                header('Location: ./inscription.php');
+                exit();
             }
         }
         if(mysqli_stmt_execute($stmt2)){
