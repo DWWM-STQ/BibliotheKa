@@ -74,6 +74,21 @@ if (mysqli_query($conn, $sql)){
     echo "Erreur de création" . mysqli_error($conn);
 }
 
+$table5 = "images";
+$sql = "CREATE TABLE IF NOT EXISTS $table5(
+    img_id int(10) unsigned NOT NULL auto_increment PRIMARY KEY,
+    img_nom varchar(255) NOT NULL,
+    img_taille varchar(25) NOT NULL,
+    img_type varchar(25) NOT NULL,
+    img_desc varchar(255) NULL,
+    img_blob MEDIUMBLOB NOT NULL)";
+
+if (mysqli_query($conn, $sql)){
+    echo "Table : " . $table5 . " est créée";
+}else {
+    echo "Erreur de création" . mysqli_error($conn);
+}
+
 
 $token = "token users";
 $sql = "ALTER TABLE users ADD COLUMN token_reset VARCHAR(255) NULL";

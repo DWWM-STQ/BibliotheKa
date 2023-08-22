@@ -6,7 +6,6 @@ $_SESSION['login'] ='';
 $_SESSION['id'] ='';
 $_SESSION['roles']='';
 require '../CRUD/security.php';
-
 if (isset($_POST['login']) && ($_POST['login'] != null) && !empty($_POST['login']) && (filter_var($_POST['login'], FILTER_VALIDATE_EMAIL))){
     $login = $_POST['login'];
     $_SESSION["invalid_mail"] = NULL;

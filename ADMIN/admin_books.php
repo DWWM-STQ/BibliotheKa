@@ -18,7 +18,8 @@ require_once './COMPONENTS/navbar_admin.php';
 </head>
 <body>
     <div class="container mt-7">
-        <h2 class="mb-5 mt-3">Gestion des livres</h2><div class="row">
+        <h2 class="mb-5 mt-3">Gestion des livres</h2>
+        <div class="row">
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-0">
@@ -28,7 +29,7 @@ require_once './COMPONENTS/navbar_admin.php';
                     <?php
                     require '../CRUD/config.php';
                         $sql = "SELECT * FROM books";
-
+                    include '../CRUD/load_images.php';
                         if($result = mysqli_query($conn, $sql)){
                             if(mysqli_num_rows($result)>0){
                                 echo '<table class="table align-items-center table-flush">';
@@ -57,6 +58,7 @@ require_once './COMPONENTS/navbar_admin.php';
                                     while ($row = mysqli_fetch_array($result)){
                                         echo '<tr>';
                                             echo '<td scope="row">'. $row['id'] . '</td>';
+                                            echo load($row['image']);
                                             echo '<td scope="row"><img class="book_img_admin"  src="'.$row['image'].'" alt="couverture de '. $row['titre'] .'" >';
                                             echo '<td scope="row">'. $row['titre'] . '</td>';
                                             echo '<td scope="row">'. $row['auteur'] . '</td>';

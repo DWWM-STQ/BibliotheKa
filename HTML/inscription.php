@@ -13,6 +13,7 @@ if (isset($_SESSION['erreur'])){
 }
 
 require_once '../COMPONENTS/navbar.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
