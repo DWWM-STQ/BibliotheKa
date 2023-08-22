@@ -24,8 +24,8 @@ illustrateur varchar(150) null,
 category varchar(255) not null,
 nb_pages int(5) not null,
 editeur varchar(255) not null,
-pu_ht decimal(10,2) not null,
-tva float(6) not null,
+pu_ht decimal(10,2) unsigned not null,
+tva float(6) unsigned not null,
 titre varchar(255) not null,
 description text not null,
 image varchar(255) not null,
@@ -74,20 +74,25 @@ if (mysqli_query($conn, $sql)){
     echo "Erreur de création" . mysqli_error($conn);
 }
 
-$table5 = "images";
-$sql = "CREATE TABLE IF NOT EXISTS $table5(
-    img_id int(10) unsigned NOT NULL auto_increment PRIMARY KEY,
-    img_nom varchar(255) NOT NULL,
-    img_taille varchar(25) NOT NULL,
-    img_type varchar(25) NOT NULL,
-    img_desc varchar(255) NULL,
-    img_blob MEDIUMBLOB NOT NULL)";
+$table6 = "emprunts";
+$sql = "CREATE TABLE IF NOT EXISTS $table6(
+    id int(10) unsigned NOT NULL auto_increment PRIMARY KEY,
+    titre_livre varchar(255) NOT NULL,
+    date_emprunt DATE NOT NULL,
+    date_retour_attendu DATE NOT NULL,
+    date_retour DATE NULL,
+    client_id int(10) unsigned NOT NULL,
+    nom varchar(255) NOT NULL,
+    prenom varchar(255) NOT NULL,
+    login varchar(50) NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES users(id))";
 
 if (mysqli_query($conn, $sql)){
-    echo "Table : " . $table5 . " est créée";
+    echo "Table : " . $table6 . " est créée";
 }else {
     echo "Erreur de création" . mysqli_error($conn);
 }
+
 
 
 $token = "token users";

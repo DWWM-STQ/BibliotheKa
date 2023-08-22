@@ -59,12 +59,12 @@ require_once './COMPONENTS/navbar_admin.php';
                                     while ($row = mysqli_fetch_array($result)){
                                         echo '<tr>';
                                             echo '<td scope="row">'. $row['id'] . '</td>';
-                                            echo '<td scope="row"><img class="book_img_admin" src="../CRUD/load_images.php?img_id='.$row['id'].'" alt='.$row['image'].'></td>';
+                                            echo '<td scope="row"><img class="book_img_admin" src=".'.$row['image'].'" alt='.$row['image'].'></td>';
                                             echo '<td scope="row">'. $row['titre'] . '</td>';
                                             echo '<td scope="row">'. $row['auteur'] . '</td>';
                                             echo '<td scope="row">'. $row['illustrateur'] . '</td>';
                                             echo '<td scope="row">'. $row['category'] . '</td>';
-                                            echo '<td scope="row">'. $row['description'] . '</td>';
+                                            echo '<td scope="row" ><p class="desc">'. $row['description'] . '</p></td>';
                                             echo '<td scope="row">'. $row['ISBN'] . '</td>';
                                             echo '<td scope="row">'. $row['nb_pages'] . '</td>';
                                             echo '<td scope="row">'. $row['editeur'] . '</td>';

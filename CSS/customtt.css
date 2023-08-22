@@ -78,3 +78,11 @@
     text-decoration: none;
     color: white;
 }
+
+.desc{
+    max-height: 100px;
+    min-height: 100px;
+    text-overflow: hidden !important;
+    overflow: hidden;
+    position: relative;
+  }

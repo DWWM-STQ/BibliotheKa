@@ -8,6 +8,13 @@ if ($_SESSION['roles'] != 'admin') {
 require_once './COMPONENTS/navbar_admin.php';
 require '../CRUD/config.php';
 
+function upload_file($file){
+    var_dump($_FILES);
+    $uploadDir = 'C:\xampp\htdocs\BibliotheKa\\IMG\\';
+    $uploadFileName = $uploadDir . basename($_FILES['fic']['name']);
+
+    move_uploaded_file($_FILES['fic']['tmp_name'], $uploadFileName);
+}
 
 if(isset($_POST['titre'], $_POST['description'])){
     
@@ -27,7 +34,9 @@ if(isset($_POST['titre'], $_POST['description'])){
         $param_tva = protect_montexte($_POST['tva']);
         $param_titre = protect_montexte($_POST['titre']);
         $param_description = protect_montexte($_POST['description']);
-        $param_image = protect_montexte($_FILES['fic']['full_path']);
+        upload_file($_FILES);
+        $param_image = './IMG/'.protect_montexte($_FILES['fic']['name']);
+        // $_FILES['fic']['full_path']
         $param_stock = protect_montexte($_POST['stock']);
         
 
@@ -67,12 +76,12 @@ if(isset($_POST['titre'], $_POST['description'])){
             } ?>                            
             <div class="form-row justify-content-center">
                 <div class="form-group col-md-5 mt-3">
-                    <label for="titre" class="sr-only">Titre</label>
+                    <label for="titre" >Titre</label>
                     <input type="text" id="titre" name="titre" class="form-control" placeholder="les misérables" required autofocus maxlength="254">
                 </div>
 
                 <div class="form-group col-md-5 mt-3">
-                    <label for="fic" class="sr-only">Couverture</label>
+                    <label for="fic" >Image de couverture</label>
                     <input class="form-control" type="hidden" name="MAX_FILE_SIZE" value="250000" />
                     <input class="form-control" type="file" name="fic" size=50 required>
                 </div>
@@ -80,52 +89,52 @@ if(isset($_POST['titre'], $_POST['description'])){
 
             
                 <div class="form-group col-md-5 mt-3">
-                    <label for="auteur" class="sr-only">Auteur (peut-être vide si auteur anonyme)</label>
+                    <label for="auteur" >Auteur (peut-être vide si auteur anonyme)</label>
                     <input type="text" id="auteur" name="auteur" class="form-control" placeholder="Victor Hugo" autofocus maxlength="254">
                 </div>
 
                 <div class="form-group col-md-5 mt-3">
-                    <label for="illustrateur" class="sr-only">Illustrateur (peut-être vide si anonyme ou sans illustration)</label>
+                    <label for="illustrateur" >Illustrateur (peut-être vide si anonyme ou sans illustration)</label>
                     <input type="text" id="illustrateur" name="illustrateur" class="form-control" placeholder="inconnu" required maxlength="254">
                 </div>
 
                 <div class="form-group col-md-5 mt-3">
-                    <label for="category" class="sr-only">Catégorie</label>
+                    <label for="category" >Catégorie</label>
                     <input type="text" id="category" name="category" class="form-control" placeholder="Aventure Fictif" requiredmaxlength="254">
                 </div>
 
                 <div class="form-group col-md-5 mt-3">
-                    <label for="nb_pages" class="sr-only">Nombre de pages</label>
+                    <label for="nb_pages" >Nombre de pages</label>
                     <input type="text" id="nb_pages" name="nb_pages" class="form-control" placeholder="2 598" required maxlength="5">
                 </div>
 
                 <div class="form-group col-md-5 mt-3">
-                    <label for="editeur" class="sr-only">Éditeur</label>
+                    <label for="editeur" >Éditeur</label>
                     <input type="text" id="editeur" name="editeur" class="form-control" placeholder="Albert Lacroix et Cie" required maxlength="254">
                 </div>
 
                 <div class="form-group col-md-5 mt-3">
-                    <label for="ISBN" class="sr-only">ISBN-10</label>
+                    <label for="ISBN" >ISBN-10</label>
                     <input type="text" id="ISBN" name="ISBN" class="form-control" placeholder="9788423334186"required maxlength="40">
                 </div>
 
                 <div class="form-group col-md-5 mt-3">
-                    <label for="pu_ht" class="sr-only">prix (hors-taxe)</label>
+                    <label for="pu_ht" >prix (hors-taxe)</label>
                     <input type="number" step="0.01" min="0" id="pu_ht" name="pu_ht" class="form-control" placeholder="3.50" required maxlength="10">
                 </div>
 
                 <div class="form-group col-md-5 mt-3">
-                    <label for="tva" class="sr-only">TVA (France : 5.5)</label>
+                    <label for="tva" >TVA (France : 5.5)</label>
                     <input type="number" step="0.01" min="0" id="tva" name="tva" class="form-control" placeholder="5.5" value="5.5" requiredmaxlength="254">
                 </div>
 
                 <div class="form-group col-md-5 mt-3">
-                    <label for="description" class="sr-only">Description</label>
+                    <label for="description" >Description</label>
                     <textarea class="form-control" id="book" type="text" name="description" placeholder="Les Misérables est un roman de Victor Hugo publié en 1862, l’un des plus vastes et des plus notables de la littérature du XIXᵉ siècle." rows="3" required></textarea>
                 </div>
 
                 <div class="form-group col-md-5 mt-3">
-                    <label for="stock" class="sr-only">Stock</label>
+                    <label for="stock" >Stock</label>
                     <input type="number" id="stock" min="0" name="stock" class="form-control" placeholder="1" required maxlength="10">
                 </div>
 
