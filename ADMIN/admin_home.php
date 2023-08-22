@@ -25,7 +25,7 @@ require_once './COMPONENTS/navbar_admin.php';
 
                 <div class="col-md-3 ">
                 <a href="./admin_books.php">
-                    <div class="card mb-4 box-shadow">
+                    <div class="card card_move mb-4 box-shadow">
                     <img src="../IMG/admin_livres.jpg" class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; display: block;">
                         <div class="card-body">
                                 <p class="card-text">Ajouter, modifier des livres</p>

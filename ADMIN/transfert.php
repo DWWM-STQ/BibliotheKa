@@ -39,10 +39,8 @@ if (isset($_FILES['fic']) )
                 $param_blob = addslashes($img_blob);
                 if(mysqli_stmt_execute($stmt)){
                     echo "Création effectuée";
-                    var_dump("oui");die;
                 }else {
                     echo "erreur de création du livre";
-                    var_dump("non");die;
                 }
             }else{
                 

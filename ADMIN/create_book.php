@@ -6,7 +6,6 @@ if ($_SESSION['roles'] != 'admin') {
     exit();
 }
 require_once './COMPONENTS/navbar_admin.php';
-var_dump($_FILES);
 require '../CRUD/config.php';
 
 
@@ -28,7 +27,7 @@ if(isset($_POST['titre'], $_POST['description'])){
         $param_tva = protect_montexte($_POST['tva']);
         $param_titre = protect_montexte($_POST['titre']);
         $param_description = protect_montexte($_POST['description']);
-        $param_image = "../IMG/" . protect_montexte($_FILES['fic']['full_path']);
+        $param_image = protect_montexte($_FILES['fic']['full_path']);
         $param_stock = protect_montexte($_POST['stock']);
         
 

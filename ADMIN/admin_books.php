@@ -24,17 +24,19 @@ require_once './COMPONENTS/navbar_admin.php';
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <h3 class="mb-0">Livres disponibles</h3>
+                        <a href="./create_book.php" class="btn btn-warning m-2 float-end">Ajouter un livre</a>
                     </div>
                     <div class="table-responsive">
                     <?php
                     require '../CRUD/config.php';
                         $sql = "SELECT * FROM books";
                     include '../CRUD/load_images.php';
+                    
                         if($result = mysqli_query($conn, $sql)){
                             if(mysqli_num_rows($result)>0){
                                 echo '<table class="table align-items-center table-flush">';
-                                echo '<div><a href="./create_book.php" class="btn btn-warning m-2 float-end">Ajouter un livre</a>
-                                    </div>';
+                                
+                                
                                     echo '<thead class="thead-light">';
                                         echo '<tr>';
                                             echo '<th scope="col">ID</th>';
@@ -58,8 +60,7 @@ require_once './COMPONENTS/navbar_admin.php';
                                     while ($row = mysqli_fetch_array($result)){
                                         echo '<tr>';
                                             echo '<td scope="row">'. $row['id'] . '</td>';
-                                            echo load($row['image']);
-                                            echo '<td scope="row"><img class="book_img_admin"  src="'.$row['image'].'" alt="couverture de '. $row['titre'] .'" >';
+                                            echo '<td scope="row"><img class="book_img_admin" src="../CRUD/load_images.php?img_id='.$row['id'].'" alt='.$row['image'].'></td>';
                                             echo '<td scope="row">'. $row['titre'] . '</td>';
                                             echo '<td scope="row">'. $row['auteur'] . '</td>';
                                             echo '<td scope="row">'. $row['illustrateur'] . '</td>';
@@ -72,8 +73,8 @@ require_once './COMPONENTS/navbar_admin.php';
                                             echo '<td scope="row">'. $row['stock'] . '</td>';
                                             echo '<td scope="row">'. $row['note'] . '</td>';
                                             echo '<td scope="row">';
-                                                echo '<a href="./CRUD/update_book.php?id='.$row['id'].'" class="mr-3" title="update" data-toggle="tooltip"><span class="fas fa-pencil-alt"></span> </a>';
-                                                echo '<a href="./CRUD/delete_book.php?id='.$row['id'].'" class="mr-3" title="update" data-toggle="tooltip"><span class="fas fa-trash-alt"></span> </a>';
+                                                echo '<a href="./update_book.php?id='.$row['id'].'" class="mr-3" title="update" data-toggle="tooltip"><span class="fas fa-pencil-alt"></span> </a>';
+                                                echo '<a href="./delete_book.php?id='.$row['id'].'" class="mr-3" title="delete" data-toggle="tooltip"><span class="fas fa-trash-alt"></span> </a>';
                                             echo '</td>';
                                         echo '</tr>';
                                     }
