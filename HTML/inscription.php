@@ -35,34 +35,34 @@ require_once '../COMPONENTS/navbar.php';
       <?php if (!empty($erreur) && $erreur != ""){
         echo '<div class="alert-danger"> <p>' . $erreur . '</p> </div>';
     } ?>
-      <label for="login" class="sr-only">Adresse email*</label>
+      <label for="login">Adresse email*</label>
       <input type="email" id="login" name="login" class="form-control <?php if (!empty($_SESSION["invalid_mail"])) echo "is-invalid"; else echo "" ?>" placeholder="dupontHenri@mail.fr" required autofocus maxlength="50">
 
-      <label for="password" class="sr-only">Mot de passe*</label>
+      <label for="password">Mot de passe*</label>
       <input type="password" id="password" name="password" class="form-control <?php if (!empty($_SESSION["invalid_password"])) echo "is-invalid"; else echo "" ?>" placeholder="motDepasse%" required minlength="8" maxlength="35">
 
-      <label for="repeatPassword" class="sr-only">Confirmez votre mot de passe*</label>
+      <label for="repeatPassword" >Confirmez votre mot de passe*</label>
       <input type="password" id="repeatPassword" name="repeatPassword" class="form-control <?php if (!empty($_SESSION["invalid_password"])) echo "is-invalid"; else echo "" ?>" placeholder="motDepasse%" required minlength="8" maxlength="35" >
 
-      <label for="name" class="sr-only">Nom*</label>
+      <label for="name" >Nom*</label>
       <input type="text" id="name" name="name" class="form-control" placeholder="Dupont" required maxlength="254">
 
-      <label for="last_name" class="sr-only">Prénom*</label>
+      <label for="last_name" >Prénom*</label>
       <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Henri" required maxlength="254">
 
-      <label for="telephone" class="sr-only">Téléphone*</label>
+      <label for="telephone" >Téléphone*</label>
       <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="0606060606" required maxlength="19">
       
-      <label for="adress" class="sr-only">Adresse*</label>
+      <label for="adress" >Adresse*</label>
       <input type="text" id="adress" name="adress" class="form-control" placeholder="01, rue jean jaurès" required maxlength="254">
 
-      <label for="adresse_comp" class="sr-only">Complément d'adresse</label>
+      <label for="adresse_comp" >Complément d'adresse</label>
       <input type="text" id="adresse_comp" name="adresse_comp" class="form-control" placeholder="Bat. A" maxlength="254">
 
-      <label for="postal" class="sr-only">CP*</label>
+      <label for="postal" >CP*</label>
       <input type="text" id="postal" name="postal" class="form-control" placeholder="75000" required maxlength="50" pattern="[0-9]*">
 
-      <label for="town" class="sr-only">Ville*</label>
+      <label for="town" >Ville*</label>
       <input type="text" id="town" name="town" class="form-control" placeholder="Paris" required maxlength="254">
 
       <button class="mt-3 btn btn-lg btn-primary btn-block" type="submit">Inscription</button>

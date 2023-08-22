@@ -38,7 +38,7 @@ require_once './COMPONENTS/navbar_admin.php';
 
                 <div class="col-md-3">
                     <a href="./admin_clients.php">
-                    <div class="card mb-4 box-shadow">
+                    <div class="card card_move mb-4 box-shadow">
                         <img src="../IMG/admin_clients.jpg" class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; display: block;">
                             <div class="card-body">
                                 <p class="card-text">Gérer les clients</p>
@@ -51,7 +51,7 @@ require_once './COMPONENTS/navbar_admin.php';
 
                 <div class="col-md-3">
                 <a href="./admin_users.php">
-                    <div class="card mb-4 box-shadow">
+                    <div class="card card_move mb-4 box-shadow">
                         <img src="../IMG/admin_admin.jpg" class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; display: block;">
                             <div class="card-body">
                                 <p class="card-text">Gérer les utilisateurs</p>
@@ -64,7 +64,7 @@ require_once './COMPONENTS/navbar_admin.php';
 
                 <div class="col-md-3">
                 <a href="./admin_emprunts.php">
-                    <div class="card mb-4 box-shadow">
+                    <div class="card card_move mb-4 box-shadow">
                         <img src="../IMG/admin_emprunts.jpg" class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; display: block;" >
                             <div class="card-body">
                                 <p class="card-text">Consulter les emprunts</p>

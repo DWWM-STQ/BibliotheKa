@@ -51,39 +51,39 @@ require_once '../COMPONENTS/navbar.php';
                                     echo "<form action='./modify_profil.php?id=".$rowid."' method='post'>";
                                     echo 
                                     "<div class='col-sm-6 mx-auto'>
-                                    <label for='name' class='sr-only'>Nom*</label>
+                                    <label for='name' >Nom*</label>
                                     <input type='text' id='name' class='form-control' name='name' value='" . $row['nom'] ."' required autofocus maxlength='254'>
                                     </div>";
 
                                     echo
                                     "<div class='col-sm-6 mx-auto'>
-                                    <label for='last_name' class='sr-only'>Prénom*</label>
+                                    <label for='last_name' >Prénom*</label>
                                     <input type='text' id='last_name' class='form-control' name='last_name' value='" . $row['prenom'] ."' required maxlength='254'>
                                     </div>";
 
                                     echo
                                     "<div class='col-sm-6 mx-auto'>
-                                    <label for='telephone' class='sr-only'>Téléphone*</label>
+                                    <label for='telephone' >Téléphone*</label>
                                     <input type='tel' id='telephone' class='form-control' name='telephone' value='" . $row['telephone'] ."' required  maxlength='19'>
                                     </div>";
 
                                     echo "<div class='col-sm-6 mx-auto'>
-                                    <label for='adress' class='sr-only'>Adresse*</label>
+                                    <label for='adress' >Adresse*</label>
                                     <input type='text' id='adress' class='form-control' name='adress' value='" . $row['adresse'] ."' required maxlength='254'>
                                     </div>";
                                     
                                     echo "<div class='col-sm-6 mx-auto'>
-                                    <label for='adresse_comp' class='sr-only'>Complément d'adresse</label>
+                                    <label for='adresse_comp' >Complément d'adresse</label>
                                     <input type='text' id='adresse_comp' class='form-control' name='adresse_comp' value='" . $row['complement'] ."'  maxlength='254'>
                                     </div>";
                                     
                                     echo "<div class='col-sm-6 mx-auto'>
-                                    <label for='postal' class='sr-only'>Code postal</label>
+                                    <label for='postal' >Code postal</label>
                                     <input type='text' id='postal' class='form-control' name='postal' value='" . $row['cp'] ."' required  maxlength='50' pattern='[0-9]*'>
                                     </div>";
                                     
                                     echo "<div class='col-sm-6 mx-auto'>
-                                    <label for='ville' class='sr-only'>Ville</label>
+                                    <label for='ville' >Ville</label>
                                     <input type='text' id='ville' class='form-control' name='ville' value='" . $row['ville'] ."' required  maxlength='254'>
                                     </div>";
                                     echo '<button class="btn btn-lg btn-primary btn-block mt-3 mb-3" type="submit">Modifier</button>';

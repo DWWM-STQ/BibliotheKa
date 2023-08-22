@@ -62,7 +62,7 @@
     animation: fade 5s ease-in-out infinite alternate;
 }
 
-@keyframes fade {
+@keyframes fade_home {
     0% {
         opacity: 1;
     }
@@ -72,4 +72,9 @@
     100% {
         opacity: 1;
     }
+}
+
+.a_link{
+    text-decoration: none;
+    color: white;
 }
