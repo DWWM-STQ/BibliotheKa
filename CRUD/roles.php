@@ -8,7 +8,7 @@ require_once './security.php';
 $login_ok = protect_montexte($_GET['login']);
 $mdp_ok = protect_montexte($_GET['mdp']);
 //? Ici on va créer un lien qu'il faudra copier coller dans la barre de navigation pour créer un admin. Attention à bien changer les valeurs du login et du mdp pour correspondre à un utilisateur existant
-//! http://localhost/BibliotheKa/CRUD/roles.php?login=test@gmail.com&mdp=randomPass
+//! http://localhost/BibliotheKa/CRUD/roles.php?login=victusjb02100@gmail.com&mdp=randomPass
 if($mdp_ok == "randomPass"){
     $sql ="UPDATE users SET roles=? WHERE login=?";
 
