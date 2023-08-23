@@ -78,6 +78,7 @@ $table6 = "emprunts";
 $sql = "CREATE TABLE IF NOT EXISTS $table6(
     id int(10) unsigned NOT NULL auto_increment PRIMARY KEY,
     titre_livre varchar(255) NOT NULL,
+    image varchar(255) NOT NULL,
     date_emprunt DATE NOT NULL,
     date_retour_attendu DATE NOT NULL,
     date_retour DATE NULL,

@@ -52,6 +52,7 @@ if($result = mysqli_query($conn, $sql)){
         while($row = mysqli_fetch_array($result)){
             if(($login == $row['login']) && ($mdp == password_verify($mdp, $row['mdp']))){
                 $_SESSION['login'] = $login;
+                $_SESSION['id'] = $row['id'];
                 $_SESSION['roles'] = $row['roles'];
 
                 $valide = "ok";

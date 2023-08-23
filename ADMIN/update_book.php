@@ -5,8 +5,16 @@ if ($_SESSION['roles'] != 'admin') {
     header('Location: ../HTML/home.php');
     exit();
 }
+function upload_file($file){
+    var_dump($_FILES);
+    $uploadDir = 'C:\xampp\htdocs\BibliotheKa\\IMG\\';
+    $uploadFileName = $uploadDir . basename($_FILES['fic']['name']);
+
+    move_uploaded_file($_FILES['fic']['tmp_name'], $uploadFileName);
+}
 require_once './COMPONENTS/navbar_admin.php';
 require_once '../CRUD/config.php';
+require_once '../CRUD/security.php';
 if(isset($_GET['id']) && !empty($_GET['id'])){
     $id = trim($_GET['id']);
     $_SESSION['id'] = $id;
@@ -65,7 +73,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
         $param_tva = $_POST['tva'];
         $param_titre = $_POST['titre'];
         $param_description = $_POST['description'];
-        $param_image = $_POST['image'];
+        upload_file($_FILES);
+        $param_image = './IMG/'.protect_montexte($_FILES['fic']['name']);
         $param_stock= $_POST['stock'];
             
         $message = "modification validée.";
@@ -160,7 +169,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 
                 <div class="form-group col-md-5 mt-3">
                     <label for="description" class="sr-only">Description</label>
-                    <textarea value="<?= $description ?>" class="form-control" id="book" type="text" name="description" placeholder="Les Misérables est un roman de Victor Hugo publié en 1862, l’un des plus vastes et des plus notables de la littérature du XIXᵉ siècle." rows="3" required></textarea>
+                    <textarea value="<?= $description ?>" class="form-control" id="book" type="text" name="description" placeholder="Les Misérables est un roman de Victor Hugo publié en 1862, l’un des plus vastes et des plus notables de la littérature du XIXᵉ siècle." rows="3" required><?= $description ?></textarea>
                 </div>
 
                 <div class="form-group col-md-5 mt-3">

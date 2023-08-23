@@ -29,7 +29,6 @@ require_once './COMPONENTS/navbar_admin.php';
                     <?php
                     require '../CRUD/config.php';
                         $sql = "SELECT * FROM books";
-                    include '../CRUD/load_images.php';
                     
                         if($result = mysqli_query($conn, $sql)){
                             if(mysqli_num_rows($result)>0){
@@ -68,7 +67,7 @@ require_once './COMPONENTS/navbar_admin.php';
                                             echo '<td scope="row">'. $row['ISBN'] . '</td>';
                                             echo '<td scope="row">'. $row['nb_pages'] . '</td>';
                                             echo '<td scope="row">'. $row['editeur'] . '</td>';
-                                            echo '<td scope="row">'. $row['pu_ht'] *  $row['tva']  . '</td>';
+                                            echo '<td scope="row">'. round(($row['pu_ht'] * $row['tva']/100) + $row['pu_ht'], 2)  . '</td>';
                                             echo '<td scope="row">'. $row['stock'] . '</td>';
                                             echo '<td scope="row">'. $row['note'] . '</td>';
                                             echo '<td scope="row">';

@@ -72,6 +72,7 @@ $sql2 = 'INSERT INTO clients (nom, prenom, telephone, adresse, complement, cp, v
 if($stmt = mysqli_prepare($conn, $sql)){
     mysqli_stmt_bind_param($stmt, "sssi", $param_login, $param_mdp, $param_role, $param_verif);
     $_SESSION['login'] = $login;
+    $_SESSION['id'] = $row['id'];
     $param_login = $login;
     $param_mdp = $pass;
     $param_role = "user";
