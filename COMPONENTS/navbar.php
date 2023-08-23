@@ -26,6 +26,17 @@
             <a class="dropdown-item" href="<?php if (empty($_SESSION["login"])) echo "../HTML/connexion.php"; else echo "../HTML/myBooks.php" ?>">Mes livres</a>
             <a class="dropdown-item" href="<?php if (empty($_SESSION["login"])) echo "../HTML/connexion.php"; else echo "../HTML/profil.php" ?>">Mon profil</a> 
           </div>
+
+          <li class="nav-item">
+          <a class="nav-link" href="../HTML/cgu.php">C.G.U</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../HTML/cgv.php">C.G.V</a>
+        </li>
+
+
+
         </li>
         <?php if(isset($_SESSION['roles']) && $_SESSION['roles'] == "admin") echo "
         <li class='nav-item'>
@@ -37,6 +48,8 @@
         <input class="form-control me-sm-2" type="search" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </form> -->
+
+      
     </div>
   </div>
 </nav>

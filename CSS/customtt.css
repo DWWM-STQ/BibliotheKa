@@ -86,3 +86,21 @@
     overflow: hidden;
     position: relative;
   }
+
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+h5 {
+    font-size: 14px;
+    font-style: italic;
+}
+h5 {
+    font-size: 18px;
+    font-weight: bold;
+}
+p {
+    font-size: 16px;
+}
+
