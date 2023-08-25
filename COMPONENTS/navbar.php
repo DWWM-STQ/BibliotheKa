@@ -35,7 +35,9 @@
           <a class="nav-link" href="../HTML/cgv.php">C.G.V</a>
         </li>
 
-
+        <li class="nav-item">
+          <a class="nav-link" href="../HTML/contact.php">Contact</a>
+        </li>
 
         </li>
         <?php if(isset($_SESSION['roles']) && $_SESSION['roles'] == "admin") echo "
