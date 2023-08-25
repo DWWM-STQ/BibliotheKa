@@ -9,7 +9,7 @@ require_once '../COMPONENTS/navbar.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require '../COMPONENTS/links.php'; ?>
-    <title>CGU<?= $_SESSION['page'] ?></title>
+    <title>BibliotheKa | <?= $_SESSION['page'] ?></title>
 
 </head>
 <body>

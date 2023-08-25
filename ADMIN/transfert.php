@@ -14,7 +14,6 @@ if (isset($_FILES['fic']) )
             $ret= is_uploaded_file($_FILES['fic']['tmp_name']);
             
             if (!$ret) {
-                echo "Problème de transfert";
                 return false;
             } else {
                 $img_taille = $_FILES['fic']['size'];

@@ -70,10 +70,7 @@ if(isset($_POST['titre'], $_POST['description'])){
         <div class="border-0">
             <h5 class="mb-0">Veuillez bien remplir chaque champs</h5>
         </div>        
-        <form enctype="multipart/form-data" action="create_book.php" method="post" id="book">
-            <?php if (!empty($erreur) && $erreur != "") {
-                echo '<div class="alert-danger"> <p>' . $erreur . '</p> </div>';
-            } ?>                            
+        <form enctype="multipart/form-data" action="create_book.php" method="post" id="book">                          
             <div class="form-row justify-content-center">
                 <div class="form-group col-md-5 mt-3">
                     <label for="titre" >Titre</label>
