@@ -28,7 +28,7 @@ if(isset($_POST['id']) && $_POST['id'] != null && !empty($_POST['id'])){
     else {
         echo "La connexion à échouée";
         if(empty(trim($_GET['id']))) {
-            header('Location: Location: ./admin_books.php');
+            header('Location: ./admin_books.php');
             exit();
         }
     }

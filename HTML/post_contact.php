@@ -2,7 +2,6 @@
 session_start();
 $errors = [];
 $emails = ['contatct@gmail.com', 'commercial@gmail.com', 'administrateur@gmail.com'];
-
 if (!array_key_exists('name', $_POST) || $_POST['name'] === '') {
     $errors['name'] = "Vous n'avez pas renseigné votre nom";
 }
@@ -15,24 +14,21 @@ if (!array_key_exists('message', $_POST) || $_POST['message'] === '') {
     $errors['message'] = "Vous n'avez pas renseigné votre message";
 }
 
-if (!array_key_exists('service', $_POST) || isset($emails[$_POST['service']])) {
-    $errors['service'] = "Le service que vous demandr n'existe pas";
-}
     
 
 
 if (!empty($errors)) {
- 
     $_SESSION['errors'] = $errors;
     $_SESSION['inputs'] = $_POST;
-    header('Location: ./home.php');
+    header('Location: ./contact.php');
     exit(); 
 } else {
     $_SESSION['success'] = 1;
     $message = $_POST['message'];
     $headers = 'From: site@local.dev' . $_POST['email'];
+    header('Location: ./contact.php');
+    exit();
     mail($emails[$_POST ['service']],'formulaire de contact' . $_POST['name'], $message, $headers);
-    header('Location: ./home.php');
 }
 
 ?>
